@@ -244,7 +244,7 @@ class ImageProcessingNode(Node):
         super().__init__('image_processing_node')
 
         # Subscriptions
-        self.create_subscription(Image, '/camera/image_raw', self.image_callback, 10)
+        self.create_subscription(Image, '/camera0/image_raw', self.image_callback, 10)
         # self.create_subscription(OperationActivate, '/operation/activate', self.operation_callback, 10)
         # self.create_subscription(Int32, '/processing/sensitivity', self.sensitivity_callback, 10)
 
