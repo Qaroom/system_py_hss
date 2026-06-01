@@ -23,7 +23,7 @@ import math
 # )
 
 def hedefler_yeniden_siralama( hedeflerin_konumlari):
-        center_x, center_y = 640 / 2, 480 / 2
+        center_x, center_y = 1280 / 2, 720 / 2
         return sorted(hedeflerin_konumlari, key=lambda p: math.hypot(p[0] - center_x, p[1] - center_y))
 def draw_target(frame,
                 circle_radius=30,

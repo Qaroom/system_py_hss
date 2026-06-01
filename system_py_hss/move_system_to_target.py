@@ -17,8 +17,8 @@ class MoveSystemTOTarget(Node):
 
         self.fixed_target_positions=[]
 
-        self.cx=640/2
-        self.cy=480/2
+        self.cx=1280/2
+        self.cy=720/2
         self.velocity_x=0
         self.velocity_y=0
         self.velocity_value=0.2
