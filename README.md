@@ -1,36 +1,36 @@
 # system_py_hss
 
-`system_hss` robotu için Python tabanlı ROS 2 kontrol ve algoritma paketi.  
-Klavyeden teleoperasyon, yörünge yayını, görüntü işleme, hedefe hareket ve PID kontrol node'larını içerir.
+A Python-based ROS 2 control and algorithms package for the `system_hss` robot.  
+It contains nodes for keyboard teleoperation, trajectory publishing, image processing, target-reaching motion, and PID control.
 
-> Bu paket, [`system_hss`](https://github.com/Qaroom/system_hss) (URDF + Gazebo + `ros2_control` simülasyon paketi) ile birlikte kullanılmak üzere tasarlanmıştır.
+> This package is designed to be used together with [`system_hss`](https://github.com/Qaroom/system_hss) (the URDF + Gazebo + `ros2_control` simulation package).
 
-## Node'lar
+## Nodes
 
-| Komut | Açıklama |
+| Command | Description |
 |---|---|
-| `systemkeyboarcontrol` | Klavyeden teleoperasyon ile robotun manuel kontrolü |
-| `trajctorypublisher` | Eklem yörüngelerini (`JointTrajectory`) yayımlar |
-| `image_prossising_node` | Kamera görüntülerini işleyen görüntü işleme node'u |
-| `move_system_to_target` | Robotu belirli bir hedef noktaya götüren node |
-| `dual_pid_controller` | İki ayrı eksen için PID denetleyici |
+| `systemkeyboarcontrol` | Manual control of the robot via keyboard teleoperation |
+| `trajctorypublisher` | Publishes joint trajectories (`JointTrajectory`) |
+| `image_prossising_node` | Image-processing node that consumes camera frames |
+| `move_system_to_target` | Drives the robot to a given target point |
+| `dual_pid_controller` | PID controller for two independent axes |
 
-## Yapı
+## Structure
 
 ```
 system_py_hss/
-├── launch/            # ROS 2 launch dosyaları
-├── resource/          # ament_python kaynak işaretçisi
-├── system_py_hss/     # Python kaynak kodu (node'lar)
-├── test/              # Lint ve birim testleri
+├── launch/            # ROS 2 launch files
+├── resource/          # ament_python resource marker
+├── system_py_hss/     # Python source code (nodes)
+├── test/              # Lint and unit tests
 ├── package.xml
 ├── setup.cfg
 └── setup.py
 ```
 
-## Kurulum
+## Installation
 
-Paketi bir ROS 2 workspace'ine klonlayıp derleyin:
+Clone the package into a ROS 2 workspace and build it:
 
 ```bash
 cd ~/ros2_ws/src
@@ -40,9 +40,9 @@ colcon build --packages-select system_py_hss
 source install/setup.bash
 ```
 
-## Kullanım
+## Usage
 
-Tek tek node'ları çalıştırmak için:
+To run individual nodes:
 
 ```bash
 ros2 run system_py_hss systemkeyboarcontrol
@@ -52,15 +52,15 @@ ros2 run system_py_hss move_system_to_target
 ros2 run system_py_hss dual_pid_controller
 ```
 
-Veya `launch/` klasöründeki bir launch dosyası ile birden fazla node'u birlikte başlatabilirsiniz:
+Or start multiple nodes together using a launch file from the `launch/` folder:
 
 ```bash
 ros2 launch system_py_hss <launch_file>.launch.py
 ```
 
-Tam bir senaryo için önce `system_hss` paketiyle simülasyonu, sonra bu paketten ilgili kontrol/algoritma node'larını çalıştırın.
+For a full scenario, first bring up the simulation with the `system_hss` package, then start the relevant control/algorithm nodes from this package.
 
-## Lisans
+## License
 
-[MIT Lisansı](LICENSE)  
+[MIT License](LICENSE)  
 Copyright (c) 2026 Akram Al Qasemi
